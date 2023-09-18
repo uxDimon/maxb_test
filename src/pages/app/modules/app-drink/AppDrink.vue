@@ -15,8 +15,6 @@ const store = useAppDrink();
 const getApiDrink = () => {
 	if (route.name && !store.drink?.[routeName.value]) {
 		getApi<{ drinks: Drink[] }>(routeName.value).then((response) => {
-			console.log(response);
-
 			if (response) {
 				// Из за того что api возвращает массив с результатом поиска
 				// Нахожу точное совпадение уже на клиенте, не знаю нужно это или нет
@@ -32,8 +30,6 @@ const getApiDrink = () => {
 					// Эта функция попытка сделать их нормальными (но над ней ещё можно поработать)
 					store.careerIngredients(routeName.value);
 				}
-
-				console.log(store.drink);
 			}
 		});
 	}

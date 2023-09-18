@@ -5,7 +5,7 @@ import { DRINK_LIST } from "@/pages/app/constsApp";
 
 <template>
 	<nav>
-		<RouterLink v-for="index in DRINK_LIST" :key="index" :to="index">{{ index }}</RouterLink>
+		<RouterLink v-for="index in DRINK_LIST" :key="index" :to="'/' + index">{{ index }}</RouterLink>
 	</nav>
 
 	<RouterView />

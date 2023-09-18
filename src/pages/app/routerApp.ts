@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { DRINK_LIST } from "@/pages/app/constsApp";
 import AppDrink from "@/pages/app/modules/app-drink/AppDrink.vue";
+import NotFound from "@/pages/app/modules/not-found/NotFound.vue";
 
 const routes: {
 	path: string;
@@ -16,8 +17,6 @@ DRINK_LIST.forEach((key) => {
 	});
 });
 
-console.log(routes);
-
 const routerApp = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
 	routes: [
@@ -25,6 +24,11 @@ const routerApp = createRouter({
 			{
 				path: "/",
 				redirect: `/${DRINK_LIST[0]}`,
+			},
+			{
+				path: "/:pathMatch(.*)*",
+				name: "NotFound",
+				component: NotFound,
 			},
 		],
 		...routes,
