@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
+import { DRINK_LIST } from "@/pages/app/constsApp";
 </script>
 
 <template>
 	<nav>
-		<RouterLink to="/">Home</RouterLink>
-		<RouterLink to="/about">About</RouterLink>
+		<RouterLink v-for="index in DRINK_LIST" :key="index" :to="index">{{ index }}</RouterLink>
 	</nav>
 
 	<RouterView />
